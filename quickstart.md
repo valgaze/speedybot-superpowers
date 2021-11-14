@@ -4,9 +4,12 @@ Note: The steps below assume you have a working WebEx account & **[Nodejs](https
 
 Steps below can be automated using the cli, select the "speedybot-superpowers" option
 
+
 ```sh
-npx speedyhelper setup
+npx speedyhelper setup # selecgt speedybot-superpowers
 ```
+
+[![sb](./docs/assets/speedybot_player.gif)](https://share.descript.com/view/sBU3pk5L8Js)
 
 
 ## 1. Fetch repo & install dependencies

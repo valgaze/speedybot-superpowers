@@ -4,11 +4,15 @@
 
 **Note:** To jump right in, go here: **[quickstart.md](./quickstart.md)**
 
+
+[![sb](./docs/assets/speedybot_player.gif)](https://share.descript.com/view/sBU3pk5L8Js)
+
 ---
 
-This repo uses various $uperpowers to interact with files and perform data transformations. You could use this as a starting point to integrate with a 3rd-party services.
 
-The **<@fileupload>** handler in this repo is able to convert xlsx files to html using **[sheetjs](https://www.npmjs.com/package/xlsx)**. However, user needs to "ask" first and then upload a *.xlsx file
+This repo uses various "$uperpowers" to add response variation, interact with files and perform data transformations. You could use this as a starting point to integrate with a 3rd-party services.
+
+The **<@fileupload>** handler in this repo is able to convert xlsx files to html using **[sheetjs](https://www.npmjs.com/package/xlsx)**. 
 
 Any of phrase which matches 'convert' will activate the conversion feature:
 
