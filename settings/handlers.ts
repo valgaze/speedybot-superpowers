@@ -1,4 +1,4 @@
-import { BotHandler, $ } from 'speedybot'
+import { BotHandler, BotInst, Trigger, $ } from 'speedybot'
 import { XlsHelper } from './../src/util/xlsx'
 import pretty from 'pretty'
 
@@ -242,13 +242,21 @@ const handlers: BotHandler[] = [
 		keyword: 'chips',
 		async handler(bot) {
 			const $bot = $(bot)
-			$bot.sendChips(['hey', 'ping', '$', 'pong', { 
+
+			// Set chips to disappear after tap
+			$bot.setChipsConfig({disappearOnTap: true})
+
+			// Send chip with custom handler
+			const customChip = { 
 				label: 'custom chip', 
-				handler(bot, trigger) {
+				handler(bot:BotInst, trigger: Trigger) {
 					$bot.sendSnippet(trigger, `**The 'custom chip' was tapped**	`)
-					$bot.$trigger('chips', trigger)
+					$bot.$trigger('chips', trigger) // re-render chips
 				}
-			}], 'Pick an option below')
+			}
+
+			// Add optional title
+			$bot.sendChips(['hey', 'ping', '$', 'pong', customChip], 'These chips will disappear on tap')
 		},
 		helpText: 'Returns a sample list of "chips"'
 	}
