@@ -1,6 +1,7 @@
 import { BotHandler, $ } from 'speedybot'
 import { XlsHelper } from './../src/util/xlsx'
 import pretty from 'pretty'
+
 /**
  * The handlers below use the following:
  * 
@@ -21,6 +22,9 @@ const handlers: BotHandler[] = [
 		handler(bot, trigger) {
 			const reply = `Heya how's it going ${trigger.person.displayName}?`
 			bot.say(reply)
+
+			// trigger the 'chips' handler
+			$(bot).$trigger('chips', trigger)
 		},
 		helpText: `A handler that greets the user`
 	},
@@ -74,7 +78,6 @@ const handlers: BotHandler[] = [
 		async handler(bot, trigger) {
 				// take 1st file uploaded, note this is just a URL which requires auth to retrieve
 				const [file] = trigger.message.files
-
 				// check if the 'expectXlxsfile' context is active
 				const expectXlxsfile = await $(bot).contextActive('expectXlxsfile')
 				if (expectXlxsfile) {
@@ -234,6 +237,19 @@ const handlers: BotHandler[] = [
 			// For an example involving parse'able spreadsheets (.xlsx), see here: https://github.com/valgaze/speedybot-superpowers
 		},
 		helpText: 'A demo of $uperpowers'
+	},
+	{
+		keyword: 'chips',
+		async handler(bot) {
+			const $bot = $(bot)
+			$bot.sendChips(['hey', 'ping', 'pong', { 
+				label: 'custom chip', 
+				handler(bot, trigger) {
+					$bot.sendSnippet(trigger, `**The 'custom chip' was tapped**	`)
+				}
+			}], 'Pick an option below')
+		},
+		helpText: 'Returns a sample list of "chips"'
 	}
 ]
 

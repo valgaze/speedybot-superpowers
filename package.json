@@ -44,7 +44,7 @@
         "express": "^4.17.1",
         "node-static": "^0.7.11",
         "pretty": "^2.0.0",
-        "speedybot": "latest",
+        "speedybot": "^1.0.10",
         "webex-node-bot-framework": "^2.3.7",
         "xlsx": "^0.17.3"
     }
