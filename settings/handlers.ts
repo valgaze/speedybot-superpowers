@@ -18,7 +18,7 @@ import pretty from 'pretty'
  */
 const handlers: BotHandler[] = [
 	{
-		keyword: ['hello', 'hey', 'yo', 'watsup', 'hola'],
+		keyword: ['hi', 'hello', 'hey', 'yo', 'watsup', 'hola'],
 		handler(bot, trigger) {
 			const reply = `Heya how's it going ${trigger.person.displayName}?`
 			bot.say(reply)
@@ -242,10 +242,11 @@ const handlers: BotHandler[] = [
 		keyword: 'chips',
 		async handler(bot) {
 			const $bot = $(bot)
-			$bot.sendChips(['hey', 'ping', 'pong', { 
+			$bot.sendChips(['hey', 'ping', '$', 'pong', { 
 				label: 'custom chip', 
 				handler(bot, trigger) {
 					$bot.sendSnippet(trigger, `**The 'custom chip' was tapped**	`)
+					$bot.$trigger('chips', trigger)
 				}
 			}], 'Pick an option below')
 		},
