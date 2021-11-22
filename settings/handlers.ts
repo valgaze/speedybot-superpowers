@@ -95,8 +95,9 @@ const handlers: BotHandler[] = [
 						const prettyed = pretty(html)
 						bot.say({markdown: $(bot).htmlSnippet(prettyed)})
 
-						// Send an actual html file (uses createReadStream)
-						$(bot).sendDataAsFile(html, 'table_preview.html')
+						// Send an actual html file to the user
+						$(bot).sendDataAsFile(html, '*.html')
+						
 					} else {
 						bot.say('Expected a file in *.xlsx format')
 					}
@@ -232,7 +233,7 @@ const handlers: BotHandler[] = [
 			$bot.sendDataFromUrl('https://speedybot.valgaze.com')
 
 			// // experimental (fileystem write): send arbitrary JSON back as a file
-			// $bot.sendDataAsFile(JSON.stringify({a:1,b:2}), '.json')
+			$bot.sendDataAsFile(JSON.stringify({a:1,b:2}), '.json')
 
 			// For an example involving parse'able spreadsheets (.xlsx), see here: https://github.com/valgaze/speedybot-superpowers
 		},

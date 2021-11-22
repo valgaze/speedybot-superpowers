@@ -1,9 +1,8 @@
 ## Quickstart
 
-Note: The steps below assume you have a working WebEx account & **[Nodejs](https://nodejs.org/en/download/)** 12+
+Note: You'll need a working WebEx account & **[Nodejs](https://nodejs.org/en/download/)** 12+
 
-Steps below can be automated using the cli, select the "speedybot-superpowers" option
-
+The steps below can be automated using the cli, select the "speedybot-superpowers" option
 
 ```sh
 npx speedyhelper setup # selecgt speedybot-superpowers
@@ -35,7 +34,7 @@ npm start
 ```
 
 If all went well, it should look something like this:
-![image](https://raw.githubusercontent.com/valgaze/speedybot/master/docs/assets/framework_success.png)
+![image](./docs/assets/framework_success.png)
 
 ## 4. Run a "healthcheck" with the bot
 
