@@ -5,7 +5,7 @@ Note: You'll need a working WebEx account & **[Nodejs](https://nodejs.org/en/dow
 The steps below can be automated using the cli, select the "speedybot-superpowers" option
 
 ```sh
-npx speedyhelper setup # selecgt speedybot-superpowers
+npx speedyhelper setup # select speedybot-superpowers
 ```
 
 [![sb](./docs/assets/speedybot_player.gif)](https://share.descript.com/view/sBU3pk5L8Js)
@@ -40,7 +40,7 @@ If all went well, it should look something like this:
 
 To make sure all is well, add your bot from Step 1 in a 1-1 chat session and tell it "healthcheck"-- if everything is configured properly you should see something like this:
 
-![image](./docs/assets/framework_success.png)
+![image](./docs/assets/healthcheck.gif)
 
 ## 5. Ask it to convert a spreadsheet
 

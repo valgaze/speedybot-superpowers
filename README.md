@@ -28,13 +28,6 @@ When the conversion feature is not enabled, the user can upload json/txt/csv fil
 ![sb](./docs/assets/speedybot_xlsx.gif)
 
 
-## Video Instructions
-
-- 101: https://share.descript.com/view/ds3UA1kUb9z
-
-
-- Webhooks/3rd-party integrations: https://share.descript.com/view/bnyupJvNJcx
-
 
 ## Setup
 
@@ -44,6 +37,11 @@ cd speedybot-superpowers
 npm run setup
 # add your token to settings/config.json and launch with $ npm start
 ```
+
+## "Chips" Example
+
+![sb](./docs/assets/chip_example.gif)
+
 
 ## $uperpowers
 
@@ -160,7 +158,6 @@ export default 	{
     helpText: 'A demo of $uperpowers'
 }
 ```
-
 
 | **Command** | **Desc** |
 | --- | --- |
@@ -304,3 +301,9 @@ export default [{
     }
 ]
 ```
+
+## Video Instructions
+
+- 101: https://share.descript.com/view/ds3UA1kUb9z
+
+- Webhooks/3rd-party integrations: https://share.descript.com/view/bnyupJvNJcx
