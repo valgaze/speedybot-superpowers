@@ -76,14 +76,15 @@ const handlers: BotHandler[] = [
 	{
 		keyword: '<@fileupload>',
 		async handler(bot, trigger) {
+				const $bot = $(bot)
 				// take 1st file uploaded, note this is just a URL which requires auth to retrieve
 				const [file] = trigger.message.files
 				// check if the 'expectXlxsfile' context is active
-				const expectXlxsfile = await $(bot).contextActive('expectXlxsfile')
+				const expectXlxsfile = await $bot.contextActive('expectXlxsfile')
 				if (expectXlxsfile) {
 					// Retrieve file data, note responseType is arraybufffer
 					// arraybuffer: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer
-					const fileData = await $(bot).getFile(file, {responseType: 'arraybuffer'})
+					const fileData = await $bot.getFile(file, {responseType: 'arraybuffer'})
 					const {extension} = fileData
 					if (extension === 'xlsx') {
 						// If it's a *.xlsx file, convert the 1st sheet to html
@@ -93,28 +94,28 @@ const handlers: BotHandler[] = [
 
 						// Return copy/paste'able HTML snippet
 						const prettyed = pretty(html)
-						bot.say({markdown: $(bot).htmlSnippet(prettyed)})
+						bot.say({markdown: $bot.htmlSnippet(prettyed)})
 
 						// Send an actual html file to the user
-						$(bot).sendDataAsFile(html, '*.html')
+						$bot.sendDataAsFile(html, '*.html')
 						
 					} else {
 						bot.say('Expected a file in *.xlsx format')
 					}
 
 					// Clear the 'expectXlxsfile' context
-					$(bot).deleteContext('expectXlxsfile')
+					$bot.deleteContext('expectXlxsfile')
 				} else {
-					const fileData = await $(bot).getFile(file)
+					const fileData = await $bot.getFile(file)
 					const {extension, type} = fileData
 					const supportedFiles = ['json', 'txt', 'csv']	
 					if (supportedFiles.includes(extension)) {
 						const { data } = fileData	
 						// bot.snippet will format json or text data into markdown format
-						bot.say({markdown: $(bot).snippet(data)})
+						bot.say({markdown: $bot.snippet(data)})
 					} else {
 						if (extension === 'xlsx') {
-							$(bot).sendRandom([`If you want to convert that spreadsheet to an HTML preview say 'convert to html' & attach the file`, 
+							$bot.sendRandom([`If you want to convert that spreadsheet to an HTML preview say 'convert to html' & attach the file`, 
 											   `If you want that spreadsheet converted to html, say 'convert this file' & attach it to your message`,
 											   `To start the conversion process (xlsx to html), say 'convert this spreadsheet' and attach the file`,
 												`Say something like "convert this to html" and attach the spreadsheet file to have it converted`])

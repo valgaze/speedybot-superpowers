@@ -5,7 +5,7 @@ Note: You'll need a working WebEx account & **[Nodejs](https://nodejs.org/en/dow
 The steps below can be automated using the cli, select the "speedybot-superpowers" option
 
 ```sh
-npx speedyhelper setup # selecgt speedybot-superpowers
+npx speedyhelper setup # select speedybot-superpowers
 ```
 
 [![sb](./docs/assets/speedybot_player.gif)](https://share.descript.com/view/sBU3pk5L8Js)
